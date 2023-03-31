@@ -42,12 +42,12 @@ export default function AddStudentForm() {
 
 
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
+    firstname: "",
+    lastname: "",
     email: "",
     address: "",
     telephone: "",
-    enrolledIn: ""
+    enrolledin: ""
   });
 
   const handleInputChange = (event) => {
@@ -73,12 +73,12 @@ export default function AddStudentForm() {
 
       // Clear form after successful submission
       setFormData({
-        firstName: "",
-        lastName: "",
+        firstname: "",
+        lastname: "",
         email: "",
         address: "",
         telephone: "",
-        enrolledIn: ""
+        enrolledin: ""
       });
 
       alert('Student added successfully!');
@@ -111,16 +111,16 @@ export default function AddStudentForm() {
                 <form onSubmit={handleSubmit}>
                 <Input
                     type="text"
-                    name="firstName"
-                    value={formData.firstName}
+                    name="firstname"
+                    value={formData.firstname}
                     onChange={handleInputChange}
                     placeholder="First Name"
                     required
                 />
                 <Input
                     type="text"
-                    name="lastName"
-                    value={formData.lastName}
+                    name="lastname"
+                    value={formData.lastname}
                     onChange={handleInputChange}
                     placeholder="Last Name"
                     required
@@ -151,8 +151,8 @@ export default function AddStudentForm() {
                 />
                 <Input
                     type="text"
-                    name="enrolledIn"
-                    value={formData.enrolledIn}
+                    name="enrolledin"
+                    value={formData.enrolledin}
                     onChange={handleInputChange}
                     placeholder="Enrolled In"
                     required

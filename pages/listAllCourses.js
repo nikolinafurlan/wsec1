@@ -117,6 +117,9 @@ export default function ListAllCourses({data}) {
                     <Text h6 size={15} color="white" css={{ mt: 0 }}>
                     <Link href="http://localhost:3000/listAllStudents">
                     List all students    </Link>
+                    <Link href="http://localhost:3000/listAllGrades">
+                    List all grades    </Link>
+
 
                     </Text>
                     </Card.Body>
