@@ -84,7 +84,6 @@ export default function Chat() {
     },
   });
 
-
   async function callChatPage(){
 
            // Form the request for sending data to the server.
@@ -118,8 +117,6 @@ export default function Chat() {
    }, 1000);
 
    callChatPage();
-
-
 
     return (
             <NextUIProvider theme={myCustomTheme}>
