@@ -5,6 +5,7 @@ import { Input } from "@nextui-org/react";
 import { Container, Card, Row, Text, Col, Spacer } from "@nextui-org/react";
 import { Button, Grid } from "@nextui-org/react";
 import { Link } from "@nextui-org/react";
+import {  createTheme } from '@nextui-org/react';
 
 
 export default function Home({data}) {
@@ -60,6 +61,40 @@ async function handleSubmit(event) {
 
   const router = useRouter()
 
+
+    /**********CUSTOM THEME */
+    const myCustomTheme = createTheme({
+      type: 'light', // it could be "light" or "dark"
+      theme: {
+        colors: {
+          // brand colors
+          primaryLight: '$green200',
+          primaryLightHover: '$green300',
+          primaryLightActive: '$green400',
+          primaryLightContrast: '$green600',
+          primary: '#d8d8d8',
+          primaryBorder: '$green500',
+          primaryBorderHover: '$green600',
+          primarySolidHover: '$green700',
+          primarySolidContrast: '$white',
+          primaryShadow: '$green500',
+  
+          gradient:
+            'linear-gradient(112deg, $blue100 -25%, $pink500 -10%, $purple500 80%)',
+          link: '#5E1DAD',
+  
+          // you can also create your own color
+          myColor: '#ff4ecd',
+  
+          // ...  more colors
+        },
+        space: {},
+        fonts: {},
+      },
+    });
+    /**********END CUSTOM THEME */
+
+
   const MockItem = ({ text }) => {
     return (
       <Card css={{ h: "$24", $$cardColor: '$colors$primary' }}>
@@ -74,7 +109,7 @@ async function handleSubmit(event) {
 
   return (
 
-    <NextUIProvider>
+    <NextUIProvider theme={myCustomTheme}>
     <Grid.Container gap={2} justify="center">
       <Grid xs={4}>
         <MockItem text="1 of 3" />
@@ -88,13 +123,13 @@ async function handleSubmit(event) {
             Login to system
             <br></br>
             <form onSubmit={handleSubmit}>
-
+                  <Spacer y={1.2} />
                   <Input
                           id="username"
                           labelPlaceholder="Username"
                           initialValue=""
                   />
-                  <Spacer y={0.5} />
+                  <Spacer y={1.2} />
                   <Input
                           id="password"
                           labelPlaceholder="Password"
