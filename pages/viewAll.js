@@ -128,7 +128,7 @@ export default function ViewAll({data, courseid}) {
 
       // Get data from the form.
       const data = {
-        id: id,
+        sid: id,
         grade: gradeValue,
         cid: courseid
 

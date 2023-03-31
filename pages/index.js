@@ -23,6 +23,19 @@ async function handleSubmit(event) {
 
     console.log('password is ' + pass);
 
+    //validation
+    
+    if (!name) {
+      alert("Please enter your username");
+      return;
+    }
+  
+    if (!pass) {
+      alert("Please enter your password");
+      return;
+    }
+  
+
     // Get data from the form.
     const data = {
       username: event.target.username.value,
