@@ -129,8 +129,8 @@ export default function ListAllStudents({ data }) {
        <Card css={{ h: '$24', width: '100%', $$cardColor: '$colors$primary' }}>
             <Card.Body>
             <Text h6 size={15} color="white" css={{ mt: 0 }}>
-            <Link href="http://localhost:3000/listAllStudents">
-            List all students    </Link>
+            <Link href="http://localhost:3000/addNewStudent">
+            REGISTER NEW STUDENT HERE    </Link>
             </Text>
             </Card.Body>
             </Card>

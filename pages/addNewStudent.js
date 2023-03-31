@@ -165,14 +165,15 @@ export default function AddStudentForm() {
                 </Card.Body>
               </Card> 
 
-                              {/** Bottom card */}
-              <Card css={{ h: '$24', width: '100%', $$cardColor: '$colors$primary' }}>
-                <Card.Body>
-                  <Text h6 size={15} color="white" css={{ mt: 0 }}>
-                    Top
-                  </Text>
-                </Card.Body>
-              </Card> 
+       {/** Bottom card */}
+       <Card css={{ h: '$24', width: '100%', $$cardColor: '$colors$primary' }}>
+            <Card.Body>
+            <Text h6 size={15} color="white" css={{ mt: 0 }}>
+            <Link href="http://localhost:3000/listAllStudents">
+            GO BACK TO LIST OF ALL STUDENTS    </Link>
+            </Text>
+            </Card.Body>
+            </Card>
     </NextUIProvider>
 
   );
