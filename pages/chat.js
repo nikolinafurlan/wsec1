@@ -1,3 +1,4 @@
+import { useState } from 'react';
 
 import {useRouter} from 'next/router'
 import { NextUIProvider } from '@nextui-org/react';
@@ -9,6 +10,7 @@ import {  createTheme } from '@nextui-org/react';
 import { Table } from '@nextui-org/react';
 
 export default function Chat() {
+  const [chatLog, setChatLog] = useState([]); // Initialize an empty array to store chat messages.
 
   async function handleSubmit(event) {
 
@@ -52,6 +54,9 @@ export default function Chat() {
 
         alert ('response from server' + result);
 
+        const newChatLog = [...chatLog, result];
+        setChatLog(newChatLog);
+    
   }
 
   /**********CUSTOM THEME */
@@ -106,7 +111,7 @@ export default function Chat() {
 
               <Textarea 
               label = "Chat log"
-              placeholder = ""
+            value={chatLog.map((msg) => `${msg.username}: ${msg.comment}`).join('\n')}
               />
 
               <Spacer y={1.6} />
@@ -157,7 +162,7 @@ export default function Chat() {
 }
 
 export async function getServerSideProps(context) {
-  const res = await fetch(`http://localhost:3000/api/listCourses`);
+  const res = await fetch(`http://localhost:3000/api/saveChat`);
   const data = await res.json();
 
   return {
