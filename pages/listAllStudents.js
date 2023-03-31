@@ -8,7 +8,7 @@ import { Link } from "@nextui-org/react";
 import {  createTheme } from '@nextui-org/react';
 import { Table } from '@nextui-org/react';
 
-export default function ListAllCourses({data}) {
+export default function ListAllStudents({data}) {
 
   /**********CUSTOM THEME */
   const myCustomTheme = createTheme({
@@ -50,7 +50,7 @@ export default function ListAllCourses({data}) {
               <Card css={{ h: '$24', width: '100%', $$cardColor: '$colors$primary' }}>
                 <Card.Body>
                   <Text h6 size={15} color="white" css={{ mt: 0 }}>
-                    Top
+                    LIST OF ALL STUDENTS
                   </Text>
                 </Card.Body>
               </Card> 
@@ -69,15 +69,18 @@ export default function ListAllCourses({data}) {
             >
             <Table.Header>
               <Table.Column>ID</Table.Column>
-              <Table.Column>Title</Table.Column>
-              <Table.Column>Description </Table.Column>
-              <Table.Column>NFQ </Table.Column>
-              <Table.Column>Year </Table.Column>
-              <Table.Column>Option </Table.Column>
+              <Table.Column>First name</Table.Column>
+              <Table.Column>Last Name </Table.Column>
+              <Table.Column>Email </Table.Column>
+              <Table.Column>Address </Table.Column>
+              <Table.Column>Telephone </Table.Column>
+              <Table.Column>Enrolled in course: </Table.Column>
+
             </Table.Header>
 
             <Table.Body>
               <Table.Row key="1">
+                <Table.Cell></Table.Cell>
                 <Table.Cell></Table.Cell>
                 <Table.Cell></Table.Cell>
                 <Table.Cell></Table.Cell>
@@ -93,16 +96,16 @@ export default function ListAllCourses({data}) {
 
                   <Table.Row key="1">
                     <Table.Cell>{item.id} </Table.Cell>
-                    <Table.Cell>{item.title} </Table.Cell>
-                    <Table.Cell>{item.desc} </Table.Cell>
-                    <Table.Cell>{item.nfq} </Table.Cell>
-                    <Table.Cell>{item.courseyear} </Table.Cell>
-                    <Table.Cell>
-                      <Link href={`/viewAll?id=` + item.id}>View</Link>
-                    </Table.Cell>
+                    <Table.Cell>{item.firstname} </Table.Cell>
+                    <Table.Cell>{item.lastname} </Table.Cell>
+                    <Table.Cell>{item.email} </Table.Cell>
+                    <Table.Cell>{item.address} </Table.Cell>
+                    <Table.Cell>{item.telephone} </Table.Cell>
+                    <Table.Cell>{item.enrolledin} </Table.Cell>
                   </Table.Row>
                 ))
                 }
+
 
               </Table.Body>
           </Table>
@@ -115,8 +118,8 @@ export default function ListAllCourses({data}) {
                 <Card css={{ h: '$24', width: '100%', $$cardColor: '$colors$primary' }}>
                     <Card.Body>
                     <Text h6 size={15} color="white" css={{ mt: 0 }}>
-                    <Link href="http://localhost:3000/listAllStudents">
-                    List all students    </Link>
+                    <Link href="http://localhost:3000/addNewStudent">
+                    Add new student record HERE!    </Link>
 
                     </Text>
                     </Card.Body>
@@ -127,7 +130,7 @@ export default function ListAllCourses({data}) {
 }
 
 export async function getServerSideProps(context) {
-  const res = await fetch(`http://localhost:3000/api/listCourses`);
+  const res = await fetch(`http://localhost:3000/api/listStudents`);
   const data = await res.json();
 
   return {

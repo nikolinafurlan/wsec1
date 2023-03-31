@@ -84,6 +84,43 @@ export default function Chat() {
     },
   });
 
+
+  async function callChatPage(){
+
+           // Form the request for sending data to the server.
+           const options = {
+            // The method is POST because we are sending data.
+            method: 'GET',
+            // Tell the server we're sending JSON.
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            // Body of the request is the JSON data we created above.
+            body: '',
+          };
+  
+          // Send the form data to our forms API on Vercel and get a response.
+          const response = await fetch('api/getChats', options);
+        
+          // Get the response data from server as JSON.
+          // If server returns the name submitted, that means the form works.
+          const result = await response.json()
+  
+          //stick the resposne into chat window
+          console.log("chat page result: + result");
+
+          document.getElementById('chatlog').value = result;
+  }
+
+   //run the interval hook
+   setInterval(() => {
+   console.log('Interval triggered');
+   }, 1000);
+
+   callChatPage();
+
+
+
     return (
             <NextUIProvider theme={myCustomTheme}>
               {/** Logo to appear on top */}
@@ -106,6 +143,7 @@ export default function Chat() {
              <Textarea 
              label="Chat log"
              placeholder=""
+             id="chatlog"
              />
 
 
