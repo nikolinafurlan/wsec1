@@ -28,6 +28,19 @@ export default function ListAllStudents({ data }) {
 
   return (
     <NextUIProvider>
+
+                    {/** Logo to appear on top */}
+                    <Image width={320} height={180} src="atlaslogo.png" alt="def image" />
+        
+        {/** Top card */}
+        <Card css={{ h: '$24', width: '100%', $$cardColor: '$colors$primary' }}>
+          <Card.Body>
+            <Text h6 size={15} color="white" css={{ mt: 0 }}>
+              Top
+            </Text>
+          </Card.Body>
+        </Card> 
+
       {/* Middle card */}
       <Card css={{ h: '500px', $$cardColor: '#ffffff' }}>
         <Card.Body>
@@ -79,6 +92,15 @@ export default function ListAllStudents({ data }) {
           {/* End Table */}
         </Card.Body>
       </Card>
+       {/** Bottom card */}
+       <Card css={{ h: '$24', width: '100%', $$cardColor: '$colors$primary' }}>
+            <Card.Body>
+            <Text h6 size={15} color="white" css={{ mt: 0 }}>
+            <Link href="http://localhost:3000/listAllStudents">
+            List all students    </Link>
+            </Text>
+            </Card.Body>
+            </Card>
     </NextUIProvider>
   );
 }
